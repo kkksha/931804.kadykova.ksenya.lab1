@@ -1,0 +1,40 @@
+﻿@{ ViewData["Title"] = "AccessServiceDirectly";
+    @inject lab1.Services.ICalculate Calculate
+}
+
+<h2>AccessServiceDirectly</h2>
+
+<div><b>Rand Value First: @Calculate.val1</b></div>
+<div><b>Rand Value Second: @Calculate.val2</b></div>
+<div>
+    <b>Add :</b>
+    <br />
+    <div>@Calculate.val1 + @Calculate.val2 = @Calculate.Plus()</div>
+
+</div>
+<div>
+    <b>Sub :</b>
+    <br />
+    <div>@Calculate.val1 - @Calculate.val2 = @Calculate.Minus()</div>
+    
+</div>
+<div>
+    <b>Mult :</b>
+    <br />
+    <div>@Calculate.val1 * @Calculate.val2 = @Calculate.Multiply()</div>
+    
+</div>
+<div>
+    <b>Div :</b>
+    <br />
+    <div>
+        @Calculate.val1 / @Calculate.val2 = @if (Calculate.Divided() == -1)
+        {
+    @: error
+}
+else
+{
+    @Calculate.Divided()}
+    </div>
+   
+</div>
